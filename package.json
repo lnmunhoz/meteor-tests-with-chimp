@@ -2,16 +2,15 @@
   "name": "meteor-chimp-poc",
   "private": true,
   "scripts": {
-    "start": "meteor run",
-    "start:debug": "NODE_OPTIONS='--debug' meteor run",
-    "test": "chimp --ddp=http://localhost:3000 --mocha --path=tests",
-    "test:watch": "chimp --ddp=http://localhost:3000 --watch --mocha --path=tests"
+    "start:users": "cd ./apps/users; NODE_ENV=development meteor run",
+    "test:users": "cd ./apps/users; chimp --ddp=http://localhost:3000 --mocha --path=tests",
+    "test:users:watch": "cd ./apps/users; chimp --ddp=http://localhost:3000 --watch --mocha --path=tests",
+
+    "start:package:models": "NODE_ENV=test cd ./packages_tests/models; meteor run",
+    "test:package:models:watch": "cd ./packages_tests/models; chimp --ddp=http://localhost:3000 --watch --mocha --path=tests"
   },
   "dependencies": {
     "chai": "^3.5.0",
-    "meteor-node-stubs": "~0.2.0"
-  },
-  "devDependencies": {
     "chimp": "^0.41.2"
   },
   "eslintConfig": {
@@ -30,5 +29,11 @@
       "import/resolver": "meteor"
     },
     "rules": {}
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^7.0.0",
+    "eslint": "^3.8.1"
   }
 }
