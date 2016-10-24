@@ -2,11 +2,10 @@ import { assert } from 'chai';
 
 describe('Books:publications', () => {
   before(() => {
-    server.execute(() => {
-      Books.insert({ title: 'Test book 1' });
-      Books.insert({ title: 'Test book 2' });
-      Books.insert({ title: 'Test book 3' });
-    });
+    const authorId = server.call('Authors.methods.create', { name: 'Author Test' });
+    server.call('Books.methods.create', { title: 'Book Test 1', authorId });
+    server.call('Books.methods.create', { title: 'Book Test 2', authorId });
+    server.call('Books.methods.create', { title: 'Book Test 3', authorId });
   });
 
   after(() => {

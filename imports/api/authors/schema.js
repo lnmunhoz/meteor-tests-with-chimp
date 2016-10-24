@@ -1,13 +1,11 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 export default new SimpleSchema({
-  title: {
+  name: {
     type: String,
   },
-  authorId: {
-    type: String,
-  },
-  createdAt: {
-    type: Date,
+  booksId: {
+    type: [String],
+    defaultValue: [],
   },
 });
